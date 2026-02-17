@@ -105,15 +105,20 @@ gitalk:
 # 你们不要在这里填我的 giscus 配置项，不然你们博客下的评论会全部跑到我的仓库下面……
 # https://giscus.app/zh-CN 可以在这个网站上手动选择配置填到下方对应位置
 giscus:
-  active: false # 是否启用 giscus
-  repo: -your github username-/-your giscus repo- # 存放评论的 discus 所在的 repo
-  repoID: -your giscus repo ID- # GitHub repo ID
+  active: fase # 是否启用 giscus
+  repo: "Arowanaction/my-personal-blog" # 存放评论的 discus 所在的 repo
+  repoID: "R_kgDORSC5QQ" # GitHub repo ID
   category: Announcements # 选择新 discussions 所在的分类
-  categoryID: -giscus category id- # 分类 ID
+  categoryID: "DIC_kwDORSC5Qc4C2nIe" # 分类 ID
   mapping: pathname # pathname, url, title, og:title, specific, number
+  strict: "0"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: "buttom"
   # term: # abc 123 # specific | number
   theme: light
-  lang: en
+  lang: "zh-CN"
+  loading: "lazy"
 
 copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
 copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url" # 自定义复制版权文案,使用 %url 代替当前页面URL, 修改为false禁用
@@ -127,10 +132,10 @@ sidebar: ""
 #     - custom
 
 # 友链配置
-friends:
-  # - avatar: <友链缩略图>
-  #   link: <跳转连接>
-  #   name: <名称>
+#friends:
+# - avatar: <友链缩略图>
+#   link: <跳转连接>
+#   name: <名称>
 
 # 可复制的代码块
 copyableCodeblock: true

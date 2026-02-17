@@ -3,23 +3,24 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ""
-description: ""
-keywords:
-author: John Doe
-language: en
-timezone: ""
+title: "Arowana的个人博客"
+subtitle: "Creature that minds above the clouds"
+description: "Arowanaction的个人博客"
+keywords: "博客,个人"
+author: Arowanaction&Alice
+language: zh-CN
+timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://localhost:4000
-root: /
+# URL
+url: https://arowanaction.github.io/my-personal-blog
+root: /my-personal-blog/
 permalink: ":year/:month/:day/:title/"
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -41,7 +42,7 @@ external_link:
   exclude: ""
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
