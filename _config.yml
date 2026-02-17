@@ -103,4 +103,5 @@ theme: kira
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: "git"
-  repository:
+  repository: "https://github.com/Arowanaction/my-personal-blog.git"
+  branch: gh-pages
