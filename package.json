@@ -12,7 +12,7 @@
     "version": "8.1.1"
   },
   "dependencies": {
-    "hexo": "^8.0.0",
+    "hexo": "^8.1.1",
     "hexo-deployer-git": "^4.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
@@ -24,5 +24,11 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
