@@ -14,8 +14,9 @@ timezone: "Asia/Shanghai"
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 # URL
-url: https://arowanaction.github.io/my-personal-blog
-root: /my-personal-blog/
+# 必须改成 Cloudflare Pages 域名
+url: https://my-personal-blog-8kt.pages.dev/
+root: /
 permalink: ":year/:month/:day/:title/"
 permalink_defaults:
 pretty_urls:
