@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html 
+	lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+<link rel="stylesheet" href="/css/layout.css">
+
+		
+		<title> 零基础也能轻松掌握正则表达式! -  Arowana的个人博客</title>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" /> -->
+		<!-- <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script> -->
+		
+<link rel="stylesheet" href="/lib/mdui/mdui.min.css">
+
+		
+<script src="/lib/mdui/mdui.min.js"></script>
+
+		<!-- lazyload -->
+		
+<script src="/lib/lazysizes.js"></script>
+
+		<!-- smooth-scrolling -->
+		
+<script src="/lib/smooth-scrolling.js"></script>
+
+		<!-- highlight -->
+		
+<link rel="stylesheet" href="/lib/highlight/atom-one-dark.min.css">
+
+		
+<script src="/lib/highlight/highlight.min.js"></script>
+
+		<!-- 预置 kiraicon -->
+		
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+
+		
+		<link
+			rel="shortcut icon"
+			href="https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fd6874e92.webp# 网站图标"
+			type="image/png"
+		/>
+		
+<link rel="stylesheet" href="/deps/css/APlayer.min.css">
+
+		
+		
+<script src="/deps/js/APlayer.min.js"></script>
+<script src="/deps/js/Meting.min.js"></script>
+
+	<meta name="generator" content="Hexo 8.1.1"></head>
+
+	<body>
+		<div
+			class="kira-background"
+			style="background-image: url('https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fe6981926.webp')"
+		></div>
+		<div class="kira-header">
+    <a
+        class="kira-drawer-button mdui-ripple"
+        title="导航栏"
+        onclick="document.querySelector('.kira-sidebar-modal').classList.add('show');document.querySelector('.kira-sidebar#sidebar').classList.add('show');"
+    >
+        <i class="kirafont icon-menu"></i>
+    </a>
+    <a href="/" title="Arowana的个人博客">
+        <img
+			src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fbe82eee9.webp# 网站 Logo"
+			alt="Arowanaction&amp;Alice"
+		/>
+    </a>
+</div>
+		<div class="kira-body">
+			<div class="kira-sidebar" id="sidebar">
+	<div class="kira-avatar mdui-ripple">
+		<a target="_blank" rel="noopener" href="https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fbe82eee9.webp# 网站 Logo" title="Arowanaction&amp;Alice">
+			<img
+				src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fbe82eee9.webp# 网站 Logo"
+				alt="Arowanaction&amp;Alice"
+			/>
+		</a>
+	</div>
+	<div class="kira-count">
+		<div><span>文章</span>2</div>
+		<div><span>标签</span>3</div>
+		<div><span>分类</span>0</div>
+	</div>
+	<div class="kira-list">
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/"
+			title="回到首页"
+		>
+			<i
+				class="kirafont
+					
+						icon-home
+					"
+			></i>
+			<div class="kira-list-item-content">
+				回到首页
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/archive"
+			title="文章归档"
+		>
+			<i
+				class="kirafont
+					
+						icon-container
+					"
+			></i>
+			<div class="kira-list-item-content">
+				文章归档
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/about"
+			title="关于本人"
+		>
+			<i
+				class="kirafont
+					
+						icon-user
+					"
+			></i>
+			<div class="kira-list-item-content">
+				关于本人
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/friends"
+			title="我的朋友"
+		>
+			<i
+				class="kirafont
+					
+						icon-team
+					"
+			></i>
+			<div class="kira-list-item-content">
+				我的朋友
+			</div>
+		</a>
+		
+	</div>
+	<aside id="kira-sidebar">
+		
+			<div class="kira-widget-wrap">
+	<div class="kira-widget kira-social">
+		
+			<a
+				class="mdui-ripple"
+				href="https://space.bilibili.com/442375888"
+				target="_blank"
+				mdui-tooltip="{content: '哔哩哔哩'}"
+				style="color: rgb(231, 106, 141); background-color: rgba(231, 106, 141, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-bilibili
+					"
+				></i>
+			</a>
+		
+			<a
+				class="mdui-ripple"
+				href="https://github.com/Arowanaction"
+				target="_blank"
+				mdui-tooltip="{content: 'GitHub'}"
+				style="color: rgb(25, 23, 23); background-color: rgba(25, 23, 23, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-github
+					"
+				></i>
+			</a>
+		
+			<a
+				class="mdui-ripple"
+				href="https://gitee.com/arowanaction"
+				target="_blank"
+				mdui-tooltip="{content: 'Gitee'}"
+				style="color: rgb(165, 15, 15); background-color: rgba(165, 15, 15, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-gitee
+					"
+				></i>
+			</a>
+		
+	</div>
+</div>
+
+		
+			
+		
+			
+	<div class="kira-widget-wrap">
+		<div id="randomtagcloud" class="kira-widget tagcloud kira-rainbow">
+			<a href="/tags/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">个人记录</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/" style="font-size: 10px;">零基础教学</a>
+		</div>
+		
+	</div>
+
+
+		
+			
+	<div class="kira-widget-wrap">
+		<h3 class="kira-widget-title">
+			文章归档
+		</h3>
+		<div class="kira-widget">
+			<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">2</span></li></ul>
+		</div>
+	</div>
+
+
+		
+	</aside>
+	<div class="kira-copyright">
+		&copy; 2026
+		<a href="/">Arowanaction&amp;Alice</a>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &
+		<a href="https://github.com/ch1ny/kira-hexo/" target="_blank">Kira-Hexo</a>
+		<br />
+		
+		
+	</div>
+</div>
+<div
+	class="kira-sidebar-modal"
+	id="sidebar-modal"
+	onclick="(function(self) {
+		self.classList.remove('show');
+		document.querySelector('.kira-sidebar.show#sidebar').classList.remove('show');
+	})(this)"
+></div>
+			<div class="kira-content">
+				<div id="kira-top-header"></div>
+				<div class="kira-main-content">
+					
+<link rel="stylesheet" href="/css/kira-image.css">
+
+
+<script src="/js/kira-image.js"></script>
+
+<div class="kira-image">
+    <div class="kira-image-modal">
+        <div class="kira-image-header">
+            <div class="kira-image-counter"></div>
+            <div class="kira-image-title"></div>
+            <div class="kira-image-operation">
+                <div class="kira-image-operation-button" id="kira-image-operation-button-zoom">
+                    <i class="kirafont icon-zoom-in"></i>
+                </div>
+                <div class="kira-image-operation-button" id="kira-image-operation-button-close">
+                    <i class="kirafont icon-close"></i>
+                </div>
+            </div>
+        </div>
+        <div class="kira-image-container">
+            <div class="kira-image-prev-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-left"></i>
+                </div>
+            </div>
+            <div class="kira-image-list">
+                <div class="kira-image-prev">
+                    <img />
+                </div>
+                <div class="kira-image-now">
+                    <img />
+                </div>
+                <div class="kira-image-next">
+                    <img />
+                </div>
+            </div>
+            <div class="kira-image-next-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+<link rel="stylesheet" href="/css/kira-code-copy.css">
+
+	
+<script src="/js/kira-code-copy.js"></script>
+
+
+<div class="kira-post">
+	<article>
+		
+		<div
+			class="kira-post-cover"
+			style="padding-bottom: '56.25%'"
+		>
+			<img
+				data-src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/17/6993fe6981926.webp"
+				data-sizes="auto"
+				alt="零基础也能轻松掌握正则表达式!"
+				class="lazyload kira-post-cover-image disabled-kira-image"
+			/>
+			<h1>零基础也能轻松掌握正则表达式!</h1>
+		</div>
+		
+		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
+			<a><i class="kirafont icon-calendar-fill"></i>2026年02月18日</a>
+			<a><i class="kirafont icon-edit-fill"></i>2.4k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 10 分钟</a>
+		</div>
+		<html><head><style>
+.post-content {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.post-content h1 {
+  font-size: 22px;
+  margin: 20px 0 15px;
+}
+.post-content h2 {
+  font-size: 20px;
+  margin: 18px 0 12px;
+}
+.post-content h3 {
+  font-size: 18px;
+  margin: 15px 0 10px;
+}
+</style>
+
+</head><body><h1><span id="%E5%89%8D%E8%A8%80">前言</span></h1><p>正则表达式是一种强大的文本匹配工具，简单的说，是用来在文本中查找符合某种规则的字符串的式子<br><br>我知道，现在网上有很多不错的正则表达式入门教程，但是我觉得<strong>还是不够入门，还是不够简洁</strong><br><br>这篇文章我打算用最简单的方式，帮助读者朋友保持效率的同时完全掌握正则表达式<br></p>
+<h1><span id="%E5%9F%BA%E7%A1%80%E5%AD%97%E7%AC%A6">基础字符</span></h1><p><strong>[]</strong></p>
+<ul>
+<li><code>[]</code>: 匹配 <code>[]</code> 中的任意一个字符</li>
+<li><code>[^]</code>: 匹配不在 <code>[]</code> 中的任意一个字符</li>
+<li>‘[A-Z]’:匹配所有大写字母</li>
+<li>‘[a-z]’:匹配所有小写字母</li>
+<li>‘[0-9]’:匹配所有数字<br>💡区间可以直接堆叠,比如<code>[A-Za-z0-9]</code>匹配所有字母和数字<br><br>对于这段文本: <code>abc123</code><br><br><code>[abc]/g</code> 对应的匹配结果是: <code>abc</code><br><br><code>[^abc]/g</code> 对应的匹配结果是: <code>123</code><br><br>💡/g所代表的含义会在后文进行介绍</li>
+</ul>
+<p><strong>匹配方式</strong></p>
+<ul>
+<li><p><code>\d</code>: 匹配任意一个数字字符</p>
+</li>
+<li><p><code>\w</code>: 匹配任意一个字母、数字或下划线字符</p>
+</li>
+<li><p><code>\s</code>: 匹配任意一个空白字符（包括空格、制表符、换行符等）</p>
+<p>💡将小写字母换为对应大写字母可以取反,比如<code>\D</code>:匹配任意一个非数字字符<br><br>ℹ️思考:\d,\w分别怎么用区间表示?<br></p>
+</li>
+<li><p><code>\d</code>: 等于<code>[0-9]</code></p>
+</li>
+<li><p><code>\w</code>: 等于<code>[A-Za-z0-9_]</code></p>
+</li>
+<li><p><code>'.'</code>: 匹配任意一个字符</p>
+</li>
+</ul>
+<h1><span id="%E5%AE%9A%E4%BD%8D%E5%AD%97%E7%AC%A6%E4%B8%8E%E9%99%90%E5%AE%9A%E5%AD%97%E7%AC%A6%23">定位字符与限定字符#</span></h1><p>定位字符与限定字符出现在表达式任意位置,可以影响匹配结果<br></p>
+<ul>
+<li><code>^</code>: 匹配字符串的开头</li>
+<li><code>$</code>: 匹配字符串的结尾</li>
+<li><code>*</code>: 匹配前面的元素≥0次</li>
+<li><code>+</code>: 匹配前面的元素≥1次</li>
+<li><code>?</code>: 匹配前面的元素0或1次</li>
+<li><code>{n}</code>: 匹配前面的元素=n次</li>
+<li><code>{n,}</code>: 匹配前面的元素≥n次</li>
+<li><code>{n,m}</code>: 匹配前面的元素≥n次≤m次<br>💡贪婪模式:默认情况下，正则表达式会尽可能多地匹配字符。比如<code>a*</code>会匹配所有的a,包括中间的a<br><br>💡非贪婪模式:在<code>*</code>,<code>+</code>,<code>?</code>,<code>{n,m}</code>后面添加<code>?</code>即可,比如<code>a*?</code>会只匹配到第一个a<br></li>
+</ul>
+<p>感到很晕？我们来实际应用一下已经学习的内容<br>我们要匹配任意的邮箱地址，我们应该怎么做？</p>
+<p>首先，想一想邮箱地址的组成：<strong>用户名@域名.后缀</strong></p>
+<ul>
+<li><strong>用户名</strong>：可以有字母、数字、下划线，长度任意 → 用 <code>\w+</code> 匹配</li>
+<li><strong>@</strong>：直接书写在用户名和域名中间</li>
+<li><strong>域名</strong>：可以有字母、数字，长度任意 → 用 <code>\w+</code> 匹配</li>
+<li><strong>.</strong>：直接书写在域名和后缀之间</li>
+<li><strong>后缀</strong>：可以有字母，长度任意 → 用 <code>[A-Za-z]+</code> 匹配<br>⚠️因为.在正则中是特殊字符,也就是有”实际含义”的内容,我们要在.前面添加\,表示匹配.本身<br><br>将这些内容整合在一起：<code>\w+@\w+\.\w+</code>就可以匹配任意邮箱地址。</li>
+</ul>
+<h1><span id="%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E4%BF%AE%E9%A5%B0%E7%AC%A6">匹配方式修饰符</span></h1><p>匹配修饰符在正则表达式的最后面,比如:[abc]/g,[abc]/i</p>
+<ul>
+<li><code>g</code>: 默认状态下,正则表达式找到第一个匹配的字符就会停止,加入g修饰符可以找到所有匹配项</li>
+<li><code>i</code>: 忽略大小写</li>
+<li><code>m</code>: 多行匹配,默认情况下^和$只会匹配第一行,加入m修饰符允许^和$匹配每一行的开头和结尾</li>
+<li><code>s</code>: 允许.可以匹配任意字符,包括换行符<br>💡匹配方式修饰符可以叠加,比如/gi:同时应用找到所有匹配项与忽略大小写</li>
+</ul>
+<h1><span id="%E9%80%89%E6%8B%A9%E4%B8%8E%E5%88%86%E7%BB%84%E4%B8%8E%E6%96%AD%E8%A8%80">选择与分组与断言</span></h1><ul>
+<li><code>\</code>:转义,让有特殊含义的字符失去特殊含义</li>
+<li><code>|</code>: 选择,比如<code>a|b</code>:匹配a或者b</li>
+<li><code>()</code>: 分组,将匹配词作为一个整体使用,比如<code>(ab)+</code>匹配一个或多个ab<br>💡分组与选择经常配合,比如我们知道gray和grey都是灰色。想要匹配gray或grey可以使用<code>gr(a|e)y</code><br><br>ℹ️关于断言的部分请看通俗解释</li>
+<li>正向先行断言,检查方向向右(向前),期望条件存在,语法为(?=正则表达式)</li>
+<li>正向后行断言,检查方向向左(向后),期望条件存在,语法为(?&lt;=正则表达式)</li>
+<li>负向先行断言,检查方向向右(向前),期望条件不存在,语法为(?!正则表达式)</li>
+<li>负向后行断言,检查方向向左(向后),期望条件不存在,语法为(?&lt;!正则表达式)</li>
+</ul>
+<p>ℹ️通俗解释</p>
+<ul>
+<li>(?=正则表达式)我要找的位置<strong>右边必须是</strong>正则表达式匹配的内容</li>
+<li>(?&lt;=正则表达式)我要找的位置<strong>左边必须是</strong>正则表达式匹配的内容</li>
+<li>(?!正则表达式)我要找的位置<strong>右边不能是</strong>正则表达式匹配的内容</li>
+<li>(?&lt;!正则表达式)我要找的位置<strong>左边不能是</strong>正则表达式匹配的内容</li>
+</ul>
+<p>我们来详细举例子<br>我们现在要在之前匹配邮箱地址的正则表达式 <code>\w+@\w+\.\w+</code> 基础上，<strong>排除掉所有 <code>@qq.com</code> 的邮箱地址</strong>。<br>这时候，我们就需要用到 <strong>负向先行断言</strong> <code>(?!正则表达式)</code><br>为什么?<br><br>因为我们现在需要检查@后面的域名,所以我们确定是先行断言,方向向后<br><br>我们需要让@后面的域名不能是qq.com,所以我们需要用负向断言,要求不能是匹配内容<br><br>我们已知了匹配@后面的域名的正则表达式是<code>\w+</code>,我们要在这个基础上添加负向断言,要求不能是qq.com<br><br>我们把 <code>@\w+</code> 改成 <code>@(?!qq\.com)\w+</code><br><br>最终的正则表达式就是：<br><code>\w+@(?!qq\.com)\w+\.\w+</code><br>📌附赠1:四种断言的常见别称与英文原文</p>
+<table>
+<thead>
+<tr>
+<th>标准名称</th>
+<th>常见别称</th>
+<th>英文对照</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正向先行断言</td>
+<td>正向先行肯定断言、先行匹配、肯定正向预查、正向前瞻</td>
+<td>Positive Lookahead Assertion</td>
+</tr>
+<tr>
+<td>负向先行断言</td>
+<td>正向先行否定断言、先行不匹配、否定正向预查、负向前瞻</td>
+<td>Negative Lookahead Assertion</td>
+</tr>
+<tr>
+<td>正向后行断言</td>
+<td>正向后行肯定断言、后行匹配、肯定反向预查、正向回顾</td>
+<td>Positive Lookbehind Assertion</td>
+</tr>
+<tr>
+<td>负向后行断言</td>
+<td>正向后行否定断言、后行不匹配、否定反向预查、负向回顾</td>
+<td>Negative Lookbehind Assertion</td>
+</tr>
+</tbody></table>
+<p>ℹ📌附赠2:常用的多种正则表达式<br>第一个:匹配合法车牌号<br><br><code>^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$</code><br>🤔这个正则表达式是如何做到的?</p>
+<ul>
+<li>^:匹配字符串开头</li>
+<li>[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}:匹配一个省份的汉字</li>
+<li>[A-Z]{1}:匹配一个大写字母</li>
+<li>[A-Z0-9]{4}:匹配4个字母或数字</li>
+<li>[A-Z0-9挂学警港澳]{1}:匹配一个字母或数字或挂学警港澳</li>
+<li>$:匹配字符串结尾</li>
+</ul>
+<p>第二个:匹配合法手机号<br><br><code>^1[23456789]\d{9}$</code><br>🤔这个正则表达式是如何做到的?</p>
+<ul>
+<li>^:匹配字符串开头</li>
+<li>1:匹配数字1</li>
+<li></li>
+<li>\d{9}:匹配9个数字位数</li>
+<li>$:匹配字符串结尾</li>
+</ul>
+<p>第三个:匹配符合密码规则的字符串<br><br><code>^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&amp;*? ]).*$</code><br>🤔这个正则表达式是如何做到的?</p>
+<ul>
+<li>^:匹配字符串开头</li>
+<li>.*:匹配任意字符0个或多个</li>
+<li>(?=.{6,}):要求字符串长度至少为6个字符,可以随意替换数字来改变要求的密码长度</li>
+<li>(?=.*\d):要求字符串中必须包含一个数字</li>
+<li>(?=.*[A-Z]):要求字符串中必须包含一个大写字母</li>
+<li>(?=.*[a-z]):要求字符串中必须包含一个小写字母</li>
+<li>(?=.<em>[!@#$%^&amp;</em>? ]):要求字符串中必须包含一个特殊字符</li>
+<li>.*:匹配任意字符0个或多个</li>
+<li>$:匹配字符串结尾</li>
+</ul>
+<p>第四个:匹配完全合规的邮箱地址<br><br><code>^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$</code><br>🤔这个正则表达式是如何做到的?</p>
+<ul>
+<li>^:匹配字符串开头</li>
+<li>[a-zA-Z0-9_.-]+:匹配邮箱用户名,可以包含字母、数字、下划线、点号、减号</li>
+<li>@:匹配@符号</li>
+<li>[a-zA-Z0-9-]+:匹配邮箱域名,可以包含字母、数字、减号</li>
+<li>(.[a-zA-Z0-9-]+)*:匹配邮箱域名的后缀,可以包含多个点号和减号,每个后缀可以包含字母、数字、减号</li>
+<li>.[a-zA-Z0-9]{2,6}:匹配邮箱域名的后缀,必须是2到6个字母或数字</li>
+<li>$:匹配字符串结尾</li>
+</ul>
+<h1><span id="%E6%80%BB%E7%BB%93">总结</span></h1><p>当你读到这里,你应该已经掌握了正则表达式的原理与四个常用的正则表达式<br><br>正则表达式并不是很难的内容,只要你理解了原理,就可以很容易地写出符合需求的表达式<br><br>需要注意,部分正则表达式字符在不同的编程语言中可能有不同的表示方式<br><br>比如<code>\d</code>在Python中表示数字,而在JavaScript中表示任意字符<br><br>当你在编程时应用正则表达式,请查阅编程语言相关文档,防止出错&lt;br?。<br>个人常用的正则表达式训练与测试工网站:<br><br><a href="https://regex101.com/" target="_blank" class="btn btn-blue">Regex101正则表达式测试网</a><br><img data-fancybox="gallery" data-sizes="auto" data-src="/image.png" alt="alt text" class="lazyload"><br>在①中选择修饰符,②中输入正则表达式,③中输入你要匹配的文本</p>
+</body></html>
+	</article>
+
+	 
+    <div class="kira-post-copyright">
+        <strong>本文作者：</strong>Arowanaction&amp;Alice<br>
+        <strong>本文链接：</strong><a href="https://my-personal-blog-8kt.pages.dev/2026/02/18/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%B9%9F%E8%83%BD%E8%BD%BB%E6%9D%BE%E6%8E%8C%E6%8F%A1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="https:&#x2F;&#x2F;my-personal-blog-8kt.pages.dev&#x2F;2026&#x2F;02&#x2F;18&#x2F;零基础也能轻松掌握正则表达式&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;my-personal-blog-8kt.pages.dev&#x2F;2026&#x2F;02&#x2F;18&#x2F;零基础也能轻松掌握正则表达式&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+  
+	<div class="kira-post-nav">
+		<nav class="post-nav">
+			
+		</nav>
+	</div>
+	
+	<div class="kira-post-meta kira-rainbow">
+		
+		
+			<a class="kirafont icon-tag-fill -none-link" href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%95%99%E5%AD%A6/" rel="tag">零基础教学</a>
+		
+	</div>
+	
+	<div class="kira-post-footer">
+		
+
+		
+	<div class="giscus"></div>
+  
+    <script src="https://giscus.app/client.js"
+      data-repo="Arowanaction/my-personal-blog"
+      data-repo-id="R_kgDORSC5QQ"
+      data-category="Announcements"
+      data-category-id="DIC_kwDORSC5Qc4C2nIe"
+      data-mapping="pathname"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async  
+    ></script>
+  
+
+	</div>
+	
+</div>
+
+				</div>
+			</div>
+			<div class="kira-right-column">
+	<a onclick="document.querySelector('#kira-top-header').scrollIntoView({behavior: 'smooth'});" class="kira-backtotop" aria-label="回到顶部" title="回到顶部">
+		<button class="mdui-fab mdui-ripple">
+			<i class="kirafont icon-caret-up"></i>
+		</button>
+	</a>
+</div>
+
+		</div>
+	</body>
+</html>
