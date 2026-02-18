@@ -1,0 +1,141 @@
+// 全局提示框样式
+.note {
+  padding: 12px;
+  margin: 15px 0;
+  border-left: 4px solid;
+  border-radius: 2px;
+}
+.note-tip {
+  background: #f0f8fb;
+  border-color: #4299e1;
+}
+.note-success {
+  background: #f0fdf4;
+  border-color: #10b981;
+}
+.note-warning {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+.note-error {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+// 全局按钮样式
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.btn-blue {
+  background: #4299e1;
+}
+.btn-green {
+  background: #38b2ac;
+}
+.btn-orange {
+  background: #f97316;
+}
+// 按钮效果
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: all 0.2s;
+}
+
+.collapse {
+  margin: 15px 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+.collapse-header {
+  padding: 12px 16px;
+  background: #f9fafb;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.collapse-header::after {
+  content: "+";
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+.collapse-input:checked + .collapse-header::after {
+  transform: rotate(45deg);
+}
+.collapse-input {
+  display: none;
+}
+.collapse-content {
+  padding: 0 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+}
+.collapse-input:checked ~ .collapse-content {
+  padding: 12px 16px;
+  max-height: 1000px;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 16px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.card-desc {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.quote-card {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.quote-card::before {
+  content: '"';  // ✅ 修正：单引号包裹双引号
+  font-size: 48px;
+  color: #cbd5e1;
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-family: serif;
+  opacity: 0.5;
+}
+.quote-content {
+  padding-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+.quote-author {
+  margin-top: 10px;
+  color: #64748b;
+  text-align: right;
+}
+
+.collapse-header:hover {
+  background: #f3f4f6;
+  transition: background 0.2s;
+}
